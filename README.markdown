@@ -74,7 +74,8 @@ An object with the following property:
 problem.
 
 - *value* scalar, the value of the quadratic function at the solution
-*unconstrained.solution* vector containing the unconstrained minimizer of the
+
+- *unconstrained.solution* vector containing the unconstrained minimizer of the
 quadratic function.
 
 - *iterations* vector of length 2, the ﬁrst component contains the number of
