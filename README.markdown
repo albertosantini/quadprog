@@ -43,6 +43,13 @@ Notes
 
 - Lagrangian is not calculated.
 
+Applications
+============
+
+- [ConPA](https://github.com/albertosantini/node-conpa)
+
+- [Numeric.js](https://github.com/sloisel/numeric)
+
 Methods
 =======
 
