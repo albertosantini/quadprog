@@ -108,6 +108,11 @@ Applications
 
 - [Numeric.js](https://github.com/sloisel/numeric)
 
+See also
+========
+
+- [Vincent Zoonekynd's Blog](http://zoonek.free.fr/blosxom/R/2012-06-01_Optimization.html)
+
 Methods
 =======
 
