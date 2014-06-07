@@ -1,5 +1,3 @@
-/*jshint node:true */
-
 "use strict";
 
 var qp = require("../lib/quadprog"),
