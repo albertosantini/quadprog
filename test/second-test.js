@@ -11,8 +11,7 @@ vows.describe("Tests").addBatch({
                 dvec = [],
                 Amat = [],
                 bvec = [],
-                meq = 0,
-                res;
+                meq = 0;
 
             Dmat[1] = [];
             Dmat[2] = [];

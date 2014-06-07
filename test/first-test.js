@@ -1,13 +1,13 @@
 /*jshint node:true */
 
-'use strict';
+"use strict";
 
-var qp = require('../lib/quadprog'),
-    vows = require('vows'),
-    assert = require('assert');
+var qp = require("../lib/quadprog"),
+    vows = require("vows"),
+    assert = require("assert");
 
-vows.describe('Tests').addBatch({
-    'with the first test': {
+vows.describe("Tests").addBatch({
+    "with the first test": {
         topic: function () {
             var dmat = [], dvec = [], amat = [], bvec = [];
 
@@ -48,7 +48,7 @@ vows.describe('Tests').addBatch({
             return qp.solveQP(dmat, dvec, amat, bvec);
         },
 
-        'we get the result': function (topic) {
+        "we get the result": function (topic) {
             assert.equal(0.47619047619047616, topic.solution[1]);
             assert.equal(1.0476190476190477, topic.solution[2]);
             assert.equal(2.0952380952380953, topic.solution[3]);
