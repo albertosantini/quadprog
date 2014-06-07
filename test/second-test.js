@@ -4,7 +4,7 @@ var qp = require("../lib/quadprog"),
     vows = require("vows"),
     assert = require("assert");
 
-vows.describe("Tests").addBatch({
+vows.describe("Test 2").addBatch({
     "with the second test": {
         topic: function () {
             var Dmat = [],
