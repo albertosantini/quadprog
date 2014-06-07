@@ -94,7 +94,7 @@ To install with [npm](http://github.com/isaacs/npm):
 
     npm install quadprog
 
-Tested with node 0.8.x and tested results with R 2.15.2.
+Tested with node 0.10.x and with R 3.1.0.
 
 Notes
 =====
