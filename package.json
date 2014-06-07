@@ -1,7 +1,7 @@
 {
     "name": "quadprog",
     "description": "Module for solving quadratic programming problems",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "main": "index",
     "repository": "http://github.com/albertosantini/node-quadprog",
     "keywords": [
@@ -10,14 +10,9 @@
         "quadratic"
     ],
     "author": "Alberto Santini",
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "http://github.com/albertosantini/node-quadprog/raw/master/LICENSE"
-        }
-    ],
+    "license": "MIT",
     "engines": {
-        "node": ">=0.8.x"
+        "node": ">=0.10.x"
     },
     "scripts": {
         "test": "vows --spec"

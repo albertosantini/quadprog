@@ -1,3 +1,9 @@
+1.1.0 / 2014-06-07
+==================
+
+* Fixex [issue #1](https://github.com/albertosantini/node-quadprog/issues/1) (thanks @vladimir-konnov).
+* Added eslint linting.
+
 1.0.3 / 2013-03-13
 ==================
 
