@@ -1,1 +1,1 @@
-module.exports = require('./lib/quadprog');
+module.exports = require("./lib/quadprog");
