@@ -16,20 +16,28 @@ module.exports = function (grunt) {
 
         vows: {
             all: {
-                src: "test/*.js",
+                src: "test/*-test.js",
                 options: {
                     reporter: "spec",
                     error: false
                 }
+            }
+        },
+
+        benchmark: {
+            all: {
+                src: ["test/first.js", "test/second.js"]
             }
         }
     });
 
     grunt.loadNpmTasks("grunt-eslint");
     grunt.loadNpmTasks("grunt-vows-runner");
+    grunt.loadNpmTasks("grunt-benchmark");
 
     grunt.registerTask("default", [
         "eslint",
-        "vows"
+        "vows",
+        "benchmark"
     ]);
 };
