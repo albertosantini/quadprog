@@ -115,6 +115,9 @@ See also
 
 - [Vincent Zoonekynd's Blog](http://zoonek.free.fr/blosxom/R/2012-06-01_Optimization.html)
 
+- [fast.js](https://github.com/codemix/fast.js)
+- [Typed arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays)
+
 Methods
 =======
 
