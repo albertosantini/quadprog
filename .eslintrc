@@ -7,6 +7,7 @@
         "block-scoped-var": 1,
         "brace-style": [1, "1tbs"],
         "camelcase": 0,
+        "complexity": 0,
         "curly": [1, "all"],
         "eqeqeq": 1,
         "func-style": [1, "declaration"],
