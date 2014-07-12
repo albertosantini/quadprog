@@ -24,4 +24,3 @@ vows.describe("Test 1").addBatch({
     }
 
 }).export(module);
-
