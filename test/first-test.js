@@ -1,6 +1,6 @@
 "use strict";
 
- var vows = require("vows"),
+var vows = require("vows"),
     assert = require("assert"),
     t = require("./first");
 
