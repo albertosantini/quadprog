@@ -14,6 +14,7 @@ rules:
     no-floating-decimal: 2
     no-nested-ternary: 2
     no-plusplus: 2
+    no-undefined: 0
     no-use-before-define:  [2, "nofunc"]
     radix: 2
     space-after-function-name: [2, "never"]
