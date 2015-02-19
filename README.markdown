@@ -94,27 +94,23 @@ To install with [npm](http://github.com/isaacs/npm):
 
     npm install quadprog
 
-Tested with node 0.10.x and with R 3.1.0.
+Tested with node 0.12.x and with R 3.1.2.
 
 Notes
 =====
 
 - In Fortran the array index starts from 1.
 
-- Lagrangian is not calculated.
-
 Applications
 ============
 
 - [ConPA](https://github.com/albertosantini/node-conpa)
-
 - [Numeric.js](https://github.com/sloisel/numeric)
 
 See also
 ========
 
 - [Vincent Zoonekynd's Blog](http://zoonek.free.fr/blosxom/R/2012-06-01_Optimization.html)
-
 - [fast.js](https://github.com/codemix/fast.js)
 - [Typed arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays)
 
@@ -157,7 +153,7 @@ quadratic function.
 iterations the algorithm needed, the second indicates how often constraints
 became inactive after becoming active ﬁrst.
 
-- *Lagrangian* vector with the Lagragian at the solution - *to be implemented*.
+- *Lagrangian* vector with the Lagrangian multipliers at the solution.
 
 - *iact* vector with the indices of the active constraints at the solution.
 
