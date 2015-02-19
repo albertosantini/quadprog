@@ -1,3 +1,12 @@
+1.2.0 / 2014-02-19
+==================
+
+* Added Lagrangian [pr #2](https://github.com/albertosantini/node-quadprog/pull/2) (thanks @cygnyx).
+* Use Number.EPSILON instead of manually calculating machine epsilon.
+* Updated Travis CI for latest version of node and iojs.
+* Converted .eslintrc to YAML format.
+* Added Grunt support.
+
 1.1.0 / 2014-06-07
 ==================
 
