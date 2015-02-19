@@ -1,4 +1,4 @@
-1.2.0 / 2014-02-19
+1.2.0 / 2015-02-19
 ==================
 
 * Added Lagrangian [pr #2](https://github.com/albertosantini/node-quadprog/pull/2) (thanks @cygnyx).
