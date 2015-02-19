@@ -31,6 +31,21 @@ vows.describe("Test 2").addBatch({
             assert.equal(4, topic.iact[3]);
             assert.equal(1, topic.iact[4]);
             assert.equal(13, topic.iact[5]);
+            assert.equal(0.000049541083784517924, topic.Lagrangian[1]);
+            assert.equal(0, topic.Lagrangian[2]);
+            assert.equal(0.000053902979003092, topic.Lagrangian[3]);
+            assert.equal(0.000030704949904724455, topic.Lagrangian[4]);
+            assert.equal(0.00008464760953664744, topic.Lagrangian[5]);
+            assert.equal(0, topic.Lagrangian[6]);
+            assert.equal(0, topic.Lagrangian[7]);
+            assert.equal(0, topic.Lagrangian[8]);
+            assert.equal(0, topic.Lagrangian[9]);
+            assert.equal(0, topic.Lagrangian[10]);
+            assert.equal(0, topic.Lagrangian[11]);
+            assert.equal(0, topic.Lagrangian[12]);
+            assert.equal(0.0000373182859218225, topic.Lagrangian[13]);
+            assert.equal(0, topic.Lagrangian[14]);
+            assert.equal(0, topic.Lagrangian[15]);
         }
     }
 
