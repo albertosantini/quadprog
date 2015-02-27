@@ -1,7 +1,12 @@
+1.3.0 / 2015-02-27
+==================
+
+* Fixed Number.EPSILON regression [issue #3](https://github.com/albertosantini/node-quadprog/issues/3) (thanks @cygnyx).
+
 1.2.0 / 2015-02-19
 ==================
 
-* Added Lagrangian [pr #2](https://github.com/albertosantini/node-quadprog/pull/2) (thanks @cygnyx).
+* Added Lagrangian [PR #2](https://github.com/albertosantini/node-quadprog/pull/2) (thanks @cygnyx).
 * Use Number.EPSILON instead of manually calculating machine epsilon.
 * Updated Travis CI for latest version of node and iojs.
 * Converted .eslintrc to YAML format.
