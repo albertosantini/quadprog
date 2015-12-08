@@ -7,6 +7,7 @@ extends: "eslint"
 
 rules:
     camelcase: [0, {properties: "never"}]
+    no-multi-spaces: 0
     no-undefined: 0
     no-constant-condition: 0
     require-jsdoc: 0
