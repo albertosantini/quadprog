@@ -9,6 +9,7 @@ vows.describe("Test 1").addBatch({
         topic: t.first,
 
         "we get the result": function (topic) {
+            assert.equal("", topic.message);
             assert.equal(0.47619047619047616, topic.solution[1]);
             assert.equal(1.0476190476190477, topic.solution[2]);
             assert.equal(2.0952380952380953, topic.solution[3]);
