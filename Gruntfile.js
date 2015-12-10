@@ -23,7 +23,13 @@ module.exports = function (grunt) {
 
         benchmark: {
             all: {
-                src: ["test/first.js", "test/second.js"]
+                src: [
+                    "test/first.js",
+                    "test/second.js",
+                    "test/third.js",
+                    "test/fourth.js",
+                    "test/fifth.js"
+                ]
             }
         }
     });
