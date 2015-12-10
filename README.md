@@ -94,7 +94,7 @@ To install with [npm](http://github.com/isaacs/npm):
 
     npm install quadprog
 
-Tested with node 0.12.x and with R 3.1.2.
+Tested locally with Node.js 5.x and with R 3.2.2.
 
 Notes
 =====
@@ -113,6 +113,7 @@ See also
 - [Vincent Zoonekynd's Blog](http://zoonek.free.fr/blosxom/R/2012-06-01_Optimization.html)
 - [fast.js](https://github.com/codemix/fast.js)
 - [Vectorious](https://github.com/mateogianolio/vectorious)
+- [More on Quadratic Programming in R](http://quantitate.blogspot.it/2015/02/more-on-quadratic-progamming-in-r.html)
 
 Methods
 =======
@@ -157,47 +158,4 @@ became inactive after becoming active ﬁrst.
 
 - *iact* vector with the indices of the active constraints at the solution.
 
-- *message* string containing an error message, if the call failed.
-
-TODO
-====
-
-- Add a test converting the following snippet:
-
-```
-# http://quantitate.blogspot.it/2015/02/more-on-quadratic-progamming-in-r.html
-
-library("quadprog")
-
-data(iris)
-train <- iris
-train$y <-ifelse(train[,5]=="setosa", 1, -1)
-
-# order the training data labeling to avoid oddities with
-# training labels in libsvm
-# see http://www.csie.ntu.edu.tw/~cjlin/libsvm/faq.html#f430
-train <- train[order(train$y, decreasing=TRUE),]
-
-# set the problem data and parameters
-X <- as.matrix(train[,c("Petal.Length", "Petal.Width")])
-y <- as.matrix(train$y)
-n <- dim(X)[1]
-
-# solve QP with quadprog and the perturbance hack
-# quadprog solver requires that the D matrix be symmetric positive definite.
-# As a hack, we can perturb D by a small diagonal matrix and obtain positive
-# definite matrix.
-# Choose eps a relatively small value for the diagonal perturbance.
-eps <- 5e-4
-
-# build the system matrices
-Q <- sapply(1:n, function(i) y[i]*t(X)[,i])
-D <- t(Q)%*%Q
-d <- matrix(1, nrow=n)
-b0 <- rbind( matrix(0, nrow=1, ncol=1) , matrix(0, nrow=n, ncol=1) )
-A <- t(rbind(matrix(y, nrow=1, ncol=n), diag(nrow=n)))
-
-# call the QP solver:
-sol <- solve.QP(D +eps*diag(n), d, A, b0, meq=1, factorized=FALSE)
-qpsol <- matrix(sol$solution, nrow=n)
-```
+- *message* string containing an error message, if the call failed, otherwise empty.
