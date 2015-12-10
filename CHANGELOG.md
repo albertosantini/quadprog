@@ -1,3 +1,11 @@
+1.4.0 / 2015-12-10
+==================
+
+* Fixed iterations and constraints condition [issue #4](https://github.com/albertosantini/node-quadprog/issues/4) (thanks @castek).
+* Added input arguments validation.
+* Added third, fourth and fifth examples.
+* Updated dev deps.
+
 1.3.0 / 2015-02-27
 ==================
 
@@ -7,7 +15,7 @@
 ==================
 
 * Added Lagrangian [PR #2](https://github.com/albertosantini/node-quadprog/pull/2) (thanks @cygnyx).
-* Use Number.EPSILON instead of manually calculating machine epsilon.
+* Used Number.EPSILON instead of manually calculating machine epsilon.
 * Updated Travis CI for latest version of node and iojs.
 * Converted .eslintrc to YAML format.
 * Added Grunt support.
