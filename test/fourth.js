@@ -36,12 +36,4 @@ function fourth() {
     return qp.solveQP(dmat, dvec, amat, bvec, meq);
 }
 
-module.exports = {
-    name: "fourth test",
-    fourth: fourth,
-    tests: {
-        "fourth": function () {
-            fourth();
-        }
-    }
-};
+module.exports = fourth;

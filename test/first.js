@@ -42,12 +42,4 @@ function first() {
     return qp.solveQP(dmat, dvec, amat, bvec);
 }
 
-module.exports = {
-    name: "first test",
-    first: first,
-    tests: {
-        "first": function () {
-            first();
-        }
-    }
-};
+module.exports = first;

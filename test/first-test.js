@@ -1,30 +1,26 @@
 "use strict";
 
-var vows = require("vows"),
-    assert = require("assert"),
-    t = require("./first");
+var test = require("tape"),
+    first = require("./first");
 
-vows.describe("Test 1").addBatch({
-    "with the first test": {
-        topic: t.first,
+test("Test 1", function (t) {
+    var res = first();
 
-        "we get the result": function (topic) {
-            assert.equal("", topic.message);
-            assert.equal(0.47619047619047616, topic.solution[1]);
-            assert.equal(1.0476190476190477, topic.solution[2]);
-            assert.equal(2.0952380952380953, topic.solution[3]);
-            assert.equal(-2.380952380952381, topic.value[1]);
-            assert.equal(0, topic.unconstrained_solution[1]);
-            assert.equal(5, topic.unconstrained_solution[2]);
-            assert.equal(0, topic.unconstrained_solution[3]);
-            assert.equal(3, topic.iterations[1]);
-            assert.equal(0, topic.iterations[2]);
-            assert.equal(3, topic.iact[1]);
-            assert.equal(2, topic.iact[2]);
-            assert.equal(0, topic.Lagrangian[1]);
-            assert.equal(0.23809523809523808, topic.Lagrangian[2]);
-            assert.equal(2.0952380952380953, topic.Lagrangian[3]);
-        }
-    }
+    t.equal(res.message, "");
+    t.equal(res.solution[1], 0.47619047619047616);
+    t.equal(res.solution[2], 1.0476190476190477);
+    t.equal(res.solution[3], 2.0952380952380953);
+    t.equal(res.value[1], -2.380952380952381);
+    t.equal(res.unconstrained_solution[1], 0);
+    t.equal(res.unconstrained_solution[2], 5);
+    t.equal(res.unconstrained_solution[3], 0);
+    t.equal(res.iterations[1], 3);
+    t.equal(res.iterations[2], 0);
+    t.equal(res.iact[1], 3);
+    t.equal(res.iact[2], 2);
+    t.equal(res.Lagrangian[1], 0);
+    t.equal(res.Lagrangian[2], 0.23809523809523808);
+    t.equal(res.Lagrangian[3], 2.0952380952380953);
 
-}).export(module);
+    t.end();
+});

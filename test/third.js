@@ -11,12 +11,4 @@ function third() {
     return qp.solveQP(dmat, dvec, amat, bvec);
 }
 
-module.exports = {
-    name: "third test",
-    third: third,
-    tests: {
-        "third": function () {
-            third();
-        }
-    }
-};
+module.exports = third;

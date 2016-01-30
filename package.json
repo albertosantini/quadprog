@@ -15,16 +15,16 @@
         "node": ">=0.10.x"
     },
     "scripts": {
-        "test": "npm run lint && npm run vows && grunt",
-        "lint": "eslint Gruntfile.js index.js lib/**/*.js test/**/*.js",
-        "vows": "vows test/*-test.js"
+        "test": "npm run lint && npm run tape && npm run benchmark",
+        "lint": "eslint index.js lib/**/*.js test/**/*.js",
+        "tape": "tape test/**/*-test.js",
+        "benchmark": "node test/bench.js"
+
     },
     "devDependencies": {
+        "benchmark": "~2.1.0",
         "eslint": "~2.0.0-beta.2",
         "eslint-config-eslint": "~2.0.0",
-        "grunt": "~0.4.5",
-        "grunt-cli": "~0.1.13",
-        "grunt-benchmark": "~0.3.0",
-        "vows": "~0.8.1"
+        "tape": "~4.4.0"
     }
 }

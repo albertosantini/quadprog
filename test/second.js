@@ -225,12 +225,4 @@ function second() {
     return qp.solveQP(Dmat, dvec, Amat, bvec, meq);
 }
 
-module.exports = {
-    name: "second test",
-    second: second,
-    tests: {
-        "second": function () {
-            second();
-        }
-    }
-};
+module.exports = second;

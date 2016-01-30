@@ -1,27 +1,23 @@
 "use strict";
 
-var vows = require("vows"),
-    assert = require("assert"),
-    t = require("./fourth");
+var test = require("tape"),
+    fourth = require("./fourth");
 
-vows.describe("Test 4").addBatch({
-    "with the fourth test": {
-        topic: t.fourth,
+test("Test 4", function (t) {
+    var res = fourth();
 
-        "we get the result": function (topic) {
-            assert.equal("", topic.message);
-            assert.equal(-4.000000000000016, topic.solution[1]);
-            assert.equal(11.000000000000007, topic.solution[2]);
-            assert.equal(25, topic.solution[3]);
-            assert.equal(2804.500000000001, topic.value[1]);
-            assert.equal(-3.999999999999967, topic.unconstrained_solution[1]);
-            assert.equal(-30.666666666666707, topic.unconstrained_solution[2]);
-            assert.equal(-100.00000000000006, topic.unconstrained_solution[3]);
-            assert.equal(2, topic.iterations[1]);
-            assert.equal(0, topic.iterations[2]);
-            assert.equal(1, topic.iact[1]);
-            assert.equal(125, topic.Lagrangian[1]);
-        }
-    }
+    t.equal(res.message, "");
+    t.equal(res.solution[1], -4.000000000000016);
+    t.equal(res.solution[2], 11.000000000000007);
+    t.equal(res.solution[3], 25);
+    t.equal(res.value[1], 2804.500000000001);
+    t.equal(res.unconstrained_solution[1], -3.999999999999967);
+    t.equal(res.unconstrained_solution[2], -30.666666666666707);
+    t.equal(res.unconstrained_solution[3], -100.00000000000006);
+    t.equal(res.iterations[1], 2);
+    t.equal(res.iterations[2], 0);
+    t.equal(res.iact[1], 1);
+    t.equal(res.Lagrangian[1], 125);
 
-}).export(module);
+    t.end();
+});

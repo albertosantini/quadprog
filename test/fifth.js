@@ -12,12 +12,4 @@ function fifth() {
     return qp.solveQP(dmat, dvec, amat, bvec, meq);
 }
 
-module.exports = {
-    name: "fifth test",
-    fifth: fifth,
-    tests: {
-        "fifth": function () {
-            fifth();
-        }
-    }
-};
+module.exports = fifth;

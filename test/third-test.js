@@ -1,51 +1,47 @@
 "use strict";
 
-var vows = require("vows"),
-    assert = require("assert"),
-    t = require("./third");
+var test = require("tape"),
+    third = require("./third");
 
-vows.describe("Test 3").addBatch({
-    "with the third test": {
-        topic: t.third,
+test("Test 3", function (t) {
+    var res = third();
 
-        "we get the result": function (topic) {
-            assert.equal("", topic.message);
-            assert.equal(3.9989999999999997, topic.solution[1]);
-            assert.equal(3.0020000000000007, topic.solution[2]);
-            assert.equal(0.7470000000000052, topic.solution[3]);
-            assert.equal(1.2500000000000013, topic.solution[4]);
-            assert.equal(0.2480000000000018, topic.solution[5]);
-            assert.equal(0.7509999999999986, topic.solution[6]);
-            assert.equal(167.63001900000017, topic.value[1]);
-            assert.equal(-4.999999999999999, topic.unconstrained_solution[1]);
-            assert.equal(-4.999999999999999, topic.unconstrained_solution[2]);
-            assert.equal(-14.999999999999996, topic.unconstrained_solution[3]);
-            assert.equal(-9.999999999999998, topic.unconstrained_solution[4]);
-            assert.equal(-14.999999999999996, topic.unconstrained_solution[5]);
-            assert.equal(-9.999999999999998, topic.unconstrained_solution[6]);
-            assert.equal(8, topic.iterations[1]);
-            assert.equal(2, topic.iterations[2]);
-            assert.equal(3, topic.iact[1]);
-            assert.equal(5, topic.iact[2]);
-            assert.equal(1, topic.iact[3]);
-            assert.equal(7, topic.iact[4]);
-            assert.equal(9, topic.iact[5]);
-            assert.equal(33.48800000000001, topic.Lagrangian[1]);
-            assert.equal(0, topic.Lagrangian[2]);
-            assert.equal(31.49400000000001, topic.Lagrangian[3]);
-            assert.equal(0, topic.Lagrangian[4]);
-            assert.equal(30.496000000000002, topic.Lagrangian[5]);
-            assert.equal(0, topic.Lagrangian[6]);
-            assert.equal(15.490000000000004, topic.Lagrangian[7]);
-            assert.equal(0, topic.Lagrangian[8]);
-            assert.equal(8.994000000000003, topic.Lagrangian[9]);
-            assert.equal(0, topic.Lagrangian[10]);
-            assert.equal(0, topic.Lagrangian[11]);
-            assert.equal(0, topic.Lagrangian[12]);
-            assert.equal(0, topic.Lagrangian[13]);
-            assert.equal(0, topic.Lagrangian[14]);
-            assert.equal(0, topic.Lagrangian[15]);
-        }
-    }
+    t.equal(res.message, "");
+    t.equal(res.solution[1], 3.9989999999999997);
+    t.equal(res.solution[2], 3.0020000000000007);
+    t.equal(res.solution[3], 0.7470000000000052);
+    t.equal(res.solution[4], 1.2500000000000013);
+    t.equal(res.solution[5], 0.2480000000000018);
+    t.equal(res.solution[6], 0.7509999999999986);
+    t.equal(res.value[1], 167.63001900000017);
+    t.equal(res.unconstrained_solution[1], -4.999999999999999);
+    t.equal(res.unconstrained_solution[2], -4.999999999999999);
+    t.equal(res.unconstrained_solution[3], -14.999999999999996);
+    t.equal(res.unconstrained_solution[4], -9.999999999999998);
+    t.equal(res.unconstrained_solution[5], -14.999999999999996);
+    t.equal(res.unconstrained_solution[6], -9.999999999999998);
+    t.equal(res.iterations[1], 8);
+    t.equal(res.iterations[2], 2);
+    t.equal(res.iact[1], 3);
+    t.equal(res.iact[2], 5);
+    t.equal(res.iact[3], 1);
+    t.equal(res.iact[4], 7);
+    t.equal(res.iact[5], 9);
+    t.equal(res.Lagrangian[1], 33.48800000000001);
+    t.equal(res.Lagrangian[2], 0);
+    t.equal(res.Lagrangian[3], 31.49400000000001);
+    t.equal(res.Lagrangian[4], 0);
+    t.equal(res.Lagrangian[5], 30.496000000000002);
+    t.equal(res.Lagrangian[6], 0);
+    t.equal(res.Lagrangian[7], 15.490000000000004);
+    t.equal(res.Lagrangian[8], 0);
+    t.equal(res.Lagrangian[9], 8.994000000000003);
+    t.equal(res.Lagrangian[10], 0);
+    t.equal(res.Lagrangian[11], 0);
+    t.equal(res.Lagrangian[12], 0);
+    t.equal(res.Lagrangian[13], 0);
+    t.equal(res.Lagrangian[14], 0);
+    t.equal(res.Lagrangian[15], 0);
 
-}).export(module);
+    t.end();
+});
