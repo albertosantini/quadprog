@@ -99,7 +99,12 @@ Tested locally with Node.js 5.x and with R 3.2.2.
 Notes
 =====
 
-- In Fortran the array index starts from 1.
+** To maintain a one-to-one porting with the Fortran implementation, the array
+index starts from 1 and not from zero. Please, be aware and give a look at the
+examples in the test folder**.
+
+If you are using `node-quadprog` via Numeric.js, don't forget the releases may
+be not in sync. Latest release is here.
 
 Applications
 ============
