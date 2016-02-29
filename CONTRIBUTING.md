@@ -22,5 +22,9 @@ at `.eslintrc.yml`.
 - Push to your fork and submit a pull request (squashing the commits into one).
 
 At this point you are waiting on us. We like to at least comment on, if not
-accept, pull requests as soon as possible. We may suggest some changes or 
+accept, pull requests as soon as possible. We may suggest some changes or
 improvements or alternatives.
+
+If you are submitting an issue with unexpected results, don't forget to test the
+results with `quadprog` package in R. Please, provide the R script and the
+Javascript one.
