@@ -99,7 +99,7 @@ Tested locally with Node.js 5.x and with R 3.2.2.
 Notes
 =====
 
-** To maintain a one-to-one porting with the Fortran implementation, the array
+**To maintain a one-to-one porting with the Fortran implementation, the array
 index starts from 1 and not from zero. Please, be aware and give a look at the
 examples in the test folder**.
 
