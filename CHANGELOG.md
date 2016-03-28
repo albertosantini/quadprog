@@ -1,3 +1,10 @@
+1.5.0 / 2016-03-28
+==================
+
+* Refactored tests with tape.
+* Highlighted the note about the array index starts from 1 and not from zero in README.
+* Updated dev deps.
+
 1.4.0 / 2015-12-10
 ==================
 
@@ -45,4 +52,3 @@
 ==================
 
 * Initial release.
-
