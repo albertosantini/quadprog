@@ -7,6 +7,7 @@ var test2 = require("./second");
 var test3 = require("./third");
 var test4 = require("./fourth");
 var test5 = require("./fifth");
+var test6 = require("./sixth");
 
 var suite = new Benchmark.Suite("quadprog");
 
@@ -16,6 +17,7 @@ suite
     .add("test3", test3)
     .add("test4", test4)
     .add("test5", test5)
+    .add("test6", test6)
     .on("cycle", function (event) {
         console.log(String(event.target));
     })
