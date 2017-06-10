@@ -19,11 +19,10 @@
         "lint": "eslint index.js lib/**/*.js test/**/*.js",
         "tape": "tape test/**/*-test.js",
         "benchmark": "node test/bench.js"
-
     },
     "devDependencies": {
-        "benchmark": "~2.1.3",
-        "eslint": "^3.13.1",
+        "benchmark": "~2.1.4",
+        "eslint": "^3.19.0",
         "eslint-config-eslint": "~3.0.0",
         "tape": "~4.6.3"
     }
