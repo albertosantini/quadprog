@@ -3,14 +3,9 @@ root: true
 env:
     node: true
 
-extends: "eslint"
+extends:
+    "eslint:recommended"
 
 rules:
-    camelcase: [0, {properties: "never"}]
-    no-multi-spaces: 0
-    no-undefined: 0
-    no-unmodified-loop-condition: 0
-    no-constant-condition: 0
-    require-jsdoc: 0
-    space-before-function-paren: [2, {"anonymous": "always", "named": "never"}]
-    spaced-comment: [0, "always", { exceptions: ["-"]}]
+    no-console: "off"
+    no-constant-condition: "off"

@@ -21,9 +21,8 @@
         "benchmark": "node test/bench.js"
     },
     "devDependencies": {
-        "benchmark": "~2.1.4",
-        "eslint": "^3.19.0",
-        "eslint-config-eslint": "~3.0.0",
-        "tape": "~4.6.3"
+        "benchmark": "^2.1.4",
+        "eslint": "^4.2.0",
+        "tape": "^4.7.0"
     }
 }
