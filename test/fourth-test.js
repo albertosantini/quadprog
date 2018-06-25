@@ -1,10 +1,11 @@
 "use strict";
 
-var test = require("tape"),
-    fourth = require("./fourth");
+const test = require("tape");
 
-test("Test 4", function (t) {
-    var res = fourth();
+const fourth = require("./fourth");
+
+test("Test 4", t => {
+    const res = fourth();
 
     t.equal(res.message, "");
     t.equal(res.solution[1], -4.000000000000016);

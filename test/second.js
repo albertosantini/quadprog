@@ -1,40 +1,43 @@
 "use strict";
 
-var qp = require("../lib/quadprog");
+const qp = require("../lib/quadprog");
 
 function second() {
-    var Dmat = [], dvec = [], Amat = [], bvec = [], meq = 0;
+    const Dmat = [];
+    const dvec = [];
+    const Amat = [];
+    const bvec = [];
 
-    Dmat[1] = [];
-    Dmat[2] = [];
-    Dmat[3] = [];
-    Dmat[4] = [];
-    Dmat[5] = [];
-    Dmat[6] = [];
-    Dmat[7] = [];
-    Dmat[1][1] =  4.523032e-04;
-    Dmat[2][1] =  5.097330e-04;
-    Dmat[3][1] =  5.724848e-04;
-    Dmat[4][1] =  5.049878e-04;
+    Dmat[1] = Array.from({ length: 8 }, () => 0);
+    Dmat[2] = Array.from({ length: 8 }, () => 0);
+    Dmat[3] = Array.from({ length: 8 }, () => 0);
+    Dmat[4] = Array.from({ length: 8 }, () => 0);
+    Dmat[5] = Array.from({ length: 8 }, () => 0);
+    Dmat[6] = Array.from({ length: 8 }, () => 0);
+    Dmat[7] = Array.from({ length: 8 }, () => 0);
+    Dmat[1][1] = 4.523032e-04;
+    Dmat[2][1] = 5.097330e-04;
+    Dmat[3][1] = 5.724848e-04;
+    Dmat[4][1] = 5.049878e-04;
     Dmat[5][1] = -1.126059e-05;
-    Dmat[6][1] =  1.955939e-04;
-    Dmat[7][1] =  3.306526e-04;
+    Dmat[6][1] = 1.955939e-04;
+    Dmat[7][1] = 3.306526e-04;
 
-    Dmat[1][2] =  5.097330e-04;
-    Dmat[2][2] =  6.951339e-04;
-    Dmat[3][2] =  6.417501e-04;
-    Dmat[4][2] =  6.697231e-04;
+    Dmat[1][2] = 5.097330e-04;
+    Dmat[2][2] = 6.951339e-04;
+    Dmat[3][2] = 6.417501e-04;
+    Dmat[4][2] = 6.697231e-04;
     Dmat[5][2] = -1.935067e-06;
-    Dmat[6][2] =  2.421462e-04;
-    Dmat[7][2] =  3.854708e-04;
+    Dmat[6][2] = 2.421462e-04;
+    Dmat[7][2] = 3.854708e-04;
 
-    Dmat[1][3] =  5.724848e-04;
-    Dmat[2][3] =  6.417501e-04;
-    Dmat[3][3] =  8.401752e-04;
-    Dmat[4][3] =  6.540224e-04;
+    Dmat[1][3] = 5.724848e-04;
+    Dmat[2][3] = 6.417501e-04;
+    Dmat[3][3] = 8.401752e-04;
+    Dmat[4][3] = 6.540224e-04;
     Dmat[5][3] = -1.253942e-05;
-    Dmat[6][3] =  2.540068e-04;
-    Dmat[7][3] =  4.705115e-04;
+    Dmat[6][3] = 2.540068e-04;
+    Dmat[7][3] = 4.705115e-04;
 
     Dmat[1][4] = 5.049878e-04;
     Dmat[2][4] = 6.697231e-04;
@@ -47,9 +50,9 @@ function second() {
     Dmat[1][5] = -1.126059e-05;
     Dmat[2][5] = -1.935067e-06;
     Dmat[3][5] = -1.253942e-05;
-    Dmat[4][5] =  1.678568e-05;
-    Dmat[5][5] =  6.029220e-05;
-    Dmat[6][5] =  2.831196e-05;
+    Dmat[4][5] = 1.678568e-05;
+    Dmat[5][5] = 6.029220e-05;
+    Dmat[6][5] = 2.831196e-05;
     Dmat[7][5] = -2.742019e-05;
 
     Dmat[1][6] = 1.955939e-04;
@@ -60,21 +63,21 @@ function second() {
     Dmat[6][6] = 1.417604e-04;
     Dmat[7][6] = 1.441332e-04;
 
-    Dmat[1][7] =  3.306526e-04;
-    Dmat[2][7] =  3.854708e-04;
-    Dmat[3][7] =  4.705115e-04;
-    Dmat[4][7] =  3.590997e-04;
+    Dmat[1][7] = 3.306526e-04;
+    Dmat[2][7] = 3.854708e-04;
+    Dmat[3][7] = 4.705115e-04;
+    Dmat[4][7] = 3.590997e-04;
     Dmat[5][7] = -2.742019e-05;
-    Dmat[6][7] =  1.441332e-04;
-    Dmat[7][7] =  2.275453e-03;
+    Dmat[6][7] = 1.441332e-04;
+    Dmat[7][7] = 2.275453e-03;
 
-    Amat[1] = [];
-    Amat[2] = [];
-    Amat[3] = [];
-    Amat[4] = [];
-    Amat[5] = [];
-    Amat[6] = [];
-    Amat[7] = [];
+    Amat[1] = Array.from({ length: 8 }, () => 0);
+    Amat[2] = Array.from({ length: 8 }, () => 0);
+    Amat[3] = Array.from({ length: 8 }, () => 0);
+    Amat[4] = Array.from({ length: 8 }, () => 0);
+    Amat[5] = Array.from({ length: 8 }, () => 0);
+    Amat[6] = Array.from({ length: 8 }, () => 0);
+    Amat[7] = Array.from({ length: 8 }, () => 0);
 
     Amat[1][1] = 1;
     Amat[2][1] = 1;
@@ -220,7 +223,7 @@ function second() {
     dvec[6] = 4.038785e-05;
     dvec[7] = 4.581844e-05;
 
-    meq = 1;
+    const meq = 1;
 
     return qp.solveQP(Dmat, dvec, Amat, bvec, meq);
 }

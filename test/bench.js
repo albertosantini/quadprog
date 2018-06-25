@@ -1,15 +1,15 @@
 "use strict";
 
-var Benchmark = require("benchmark");
+const Benchmark = require("benchmark");
 
-var test1 = require("./first");
-var test2 = require("./second");
-var test3 = require("./third");
-var test4 = require("./fourth");
-var test5 = require("./fifth");
-var test6 = require("./sixth");
+const test1 = require("./first");
+const test2 = require("./second");
+const test3 = require("./third");
+const test4 = require("./fourth");
+const test5 = require("./fifth");
+const test6 = require("./sixth");
 
-var suite = new Benchmark.Suite("quadprog");
+const suite = new Benchmark.Suite("quadprog");
 
 suite
     .add("test1", test1)
@@ -18,7 +18,7 @@ suite
     .add("test4", test4)
     .add("test5", test5)
     .add("test6", test6)
-    .on("cycle", function (event) {
-        console.log(String(event.target));
+    .on("cycle", event => {
+        console.warn(String(event.target));
     })
     .run();

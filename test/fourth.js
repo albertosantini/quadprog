@@ -1,13 +1,16 @@
 "use strict";
 
-var qp = require("../lib/quadprog");
+const qp = require("../lib/quadprog");
 
 function fourth() {
-    var dmat = [], dvec = [], amat = [], bvec = [], meq;
+    const dmat = [];
+    const dvec = [];
+    const amat = [];
+    const bvec = [];
 
-    dmat[1] = [];
-    dmat[2] = [];
-    dmat[3] = [];
+    dmat[1] = Array.from({ length: 4 }, () => 0);
+    dmat[2] = Array.from({ length: 4 }, () => 0);
+    dmat[3] = Array.from({ length: 4 }, () => 0);
     dmat[1][1] = 13;
     dmat[2][1] = 18;
     dmat[3][1] = -6;
@@ -22,16 +25,16 @@ function fourth() {
     dvec[2] = 0;
     dvec[3] = -100;
 
-    amat[1] = [];
-    amat[2] = [];
-    amat[3] = [];
+    amat[1] = Array.from({ length: 2 }, () => 0);
+    amat[2] = Array.from({ length: 2 }, () => 0);
+    amat[3] = Array.from({ length: 2 }, () => 0);
     amat[1][1] = 0;
     amat[2][1] = 0;
     amat[3][1] = -1;
 
     bvec[1] = -25;
 
-    meq = 1;
+    const meq = 1;
 
     return qp.solveQP(dmat, dvec, amat, bvec, meq);
 }

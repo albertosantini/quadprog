@@ -1,13 +1,16 @@
 "use strict";
 
-var qp = require("../lib/quadprog");
+const qp = require("../lib/quadprog");
 
 function first() {
-    var dmat = [], dvec = [], amat = [], bvec = [];
+    const dmat = [];
+    const dvec = [];
+    const amat = [];
+    const bvec = [];
 
-    dmat[1] = [];
-    dmat[2] = [];
-    dmat[3] = [];
+    dmat[1] = Array.from({ length: 4 }, () => 0);
+    dmat[2] = Array.from({ length: 4 }, () => 0);
+    dmat[3] = Array.from({ length: 4 }, () => 0);
     dmat[1][1] = 1;
     dmat[2][1] = 0;
     dmat[3][1] = 0;
@@ -22,9 +25,9 @@ function first() {
     dvec[2] = 5;
     dvec[3] = 0;
 
-    amat[1] = [];
-    amat[2] = [];
-    amat[3] = [];
+    amat[1] = Array.from({ length: 4 }, () => 0);
+    amat[2] = Array.from({ length: 4 }, () => 0);
+    amat[3] = Array.from({ length: 4 }, () => 0);
     amat[1][1] = -4;
     amat[2][1] = -3;
     amat[3][1] = 0;

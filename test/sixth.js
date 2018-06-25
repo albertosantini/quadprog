@@ -1,6 +1,6 @@
 "use strict";
 
-var qp = require("../lib/quadprog");
+const qp = require("../lib/quadprog");
 
 // base0to1 borrowed by
 // https://github.com/sloisel/numeric/blob/master/src/quadprog.js
@@ -9,11 +9,10 @@ function base0to1(A) {
         return A;
     }
 
-    var ret = [];
-    var n = A.length;
-    var i;
+    const ret = [];
+    const n = A.length;
 
-    for (i = 0; i < n; i += 1) {
+    for (let i = 0; i < n; i += 1) {
         ret[i + 1] = base0to1(A[i]);
     }
 
@@ -21,7 +20,7 @@ function base0to1(A) {
 }
 
 function sixth() {
-    var H = [
+    const H = [
         [1, 0, 0, 0, 0],
         [0, 1, 0, 0, 0],
         [0, 0, 1, 0, 0],
@@ -29,16 +28,16 @@ function sixth() {
         [0, 0, 0, 0, 1]
     ];
 
-    var g = [-5, -0.5, 0, 0.2, 2];
+    const g = [-5, -0.5, 0, 0.2, 2];
 
     // l = [-1, -1, -1, ...]
-    var l = [-1, -1, -1, -1, -1];
+    const l = [-1, -1, -1, -1, -1];
 
     // b =[l; -u]
-    var b = l.concat(l);
+    const b = l.concat(l);
 
     // A = [eye(n,n), -eye(n,n)]
-    var A = [
+    const A = [
         [1, 0, 0, 0, 0, -1, 0, 0, 0, 0],
         [0, 1, 0, 0, 0, 0, -1, 0, 0, 0],
         [0, 0, 1, 0, 0, 0, 0, -1, 0, 0],
@@ -46,10 +45,10 @@ function sixth() {
         [0, 0, 0, 0, 1, 0, 0, 0, 0, -1]
     ];
 
-    var bvec = base0to1(b);
-    var dvec = base0to1(g);
-    var dmat = base0to1(H);
-    var amat = base0to1(A);
+    const bvec = base0to1(b);
+    const dvec = base0to1(g);
+    const dmat = base0to1(H);
+    const amat = base0to1(A);
 
     return qp.solveQP(dmat, dvec, amat, bvec);
 }
