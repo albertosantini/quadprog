@@ -1,9 +1,7 @@
 {
     "compilerOptions": {
+        "checkJs": true,
         "target": "es2015",
-        "checkJs": true
-    },
-    "exclude": [
-        "node_modules"
-    ]
+        "moduleResolution": "node"
+    }
 }
