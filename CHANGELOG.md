@@ -1,3 +1,11 @@
+1.6.0 / 2018-06-27
+==================
+
+* Node.js supported >=8.x.
+* Refactor thte code in es2015 style.
+* Split the monolithic quadprog file.
+* Update eslint 5.x.
+
 1.5.1 / 2017-07-15
 ==================
 
