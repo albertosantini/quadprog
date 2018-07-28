@@ -7,7 +7,13 @@ const test = require("tape");
 const qp = require("../lib/quadprog");
 
 function almostEqual(a, b) {
-    return Math.abs(a - b) <= 1e-15 + 1e-10 * Math.abs(b);
+    const isAlmostEqual = Math.abs(a - b) <= 1e-15 + 1e-10 * Math.abs(b);
+
+    if (!isAlmostEqual) {
+        console.log(a, b); // eslint-disable-line no-console
+    }
+
+    return isAlmostEqual;
 }
 
 function almostEqualArray(a, b) {
