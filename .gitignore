@@ -1,3 +1,1 @@
-/node_modules
-.*.un~
-.*.swp
+node_modules/
