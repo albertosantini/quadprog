@@ -1,3 +1,8 @@
+1.6.1 / 2018-07-28
+==================
+
+* Refactor testing to be more general [PR #5](https://github.com/albertosantini/node-quadprog/pull/5) (thanks @erikbrinkman).
+
 1.6.0 / 2018-06-27
 ==================
 
