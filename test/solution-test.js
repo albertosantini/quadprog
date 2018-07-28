@@ -15,8 +15,15 @@ function almostEqualArray(a, b) {
 }
 
 function testWrapper(base) {
-    const { Dmat, dvec, Amat, bvec, meq, factorized } = JSON.parse(fs.readFileSync(`test/${base}-data.json`));
-    const expected = JSON.parse(fs.readFileSync(`test/${base}-result.json`));
+    const {
+        Dmat,
+        dvec,
+        Amat,
+        bvec,
+        meq,
+        factorized
+    } = JSON.parse(fs.readFileSync(`test/${base}-data.json`).toString());
+    const expected = JSON.parse(fs.readFileSync(`test/${base}-result.json`).toString());
 
     [Dmat, Amat].forEach(m => m.forEach(r => r.unshift(0)));
     [Dmat, dvec, Amat, bvec].forEach(v => v.unshift(0));
@@ -29,7 +36,13 @@ function testWrapper(base) {
 
     function wrappedTest(t) {
         const {
-            message, value, solution, unconstrained_solution, Lagrangian, iact, iterations // eslint-disable-line camelcase
+            message,
+            value,
+            solution,
+            unconstrained_solution, // eslint-disable-line camelcase
+            Lagrangian,
+            iact,
+            iterations
         } = qp.solveQP(Dmat, dvec, Amat, bvec, meq, [, factorized ? 1 : 0]); // eslint-disable-line no-sparse-arrays
 
         [solution, unconstrained_solution, Lagrangian, iact, iterations].forEach(v => v.shift()); // eslint-disable-line camelcase
