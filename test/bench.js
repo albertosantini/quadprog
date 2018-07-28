@@ -9,13 +9,27 @@ const solve = require("../lib/quadprog").solveQP;
 const suite = new Benchmark.Suite("quadprog");
 
 function wsolve(file) {
-    const { Dmat, dvec, Amat, bvec, meq, factorized } = JSON.parse(fs.readFileSync(file));
+    const {
+        Dmat,
+        dvec,
+        Amat,
+        bvec,
+        meq,
+        factorized
+    } = JSON.parse(fs.readFileSync(file).toString());
 
     [Dmat, Amat].forEach(m => m.forEach(r => r.unshift(0)));
     [Dmat, dvec, Amat, bvec].forEach(v => v.unshift([]));
 
     function wrapped() {
-        solve(Dmat.map(r => r.slice()), dvec.slice(), Amat.map(r => r.slice()), bvec.slice(), meq, [, factorized ? 1 : 0]); // eslint-disable-line no-sparse-arrays
+        solve(
+            Dmat.map(r => r.slice()),
+            dvec.slice(),
+            Amat.map(r => r.slice()),
+            bvec.slice(),
+            meq,
+            [, factorized ? 1 : 0] // eslint-disable-line no-sparse-arrays
+        );
     }
     return wrapped;
 }
