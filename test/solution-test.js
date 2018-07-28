@@ -47,14 +47,22 @@ function testWrapper(base) {
 
         [solution, unconstrained_solution, Lagrangian, iact, iterations].forEach(v => v.shift()); // eslint-disable-line camelcase
 
-        t.equal(message, "");
-        t.ok(almostEqual(value[1], expected.value), "values are almost equal");
-        t.ok(almostEqualArray(solution, expected.solution), "solutions are almost equal");
-        t.ok(almostEqualArray(unconstrained_solution, expected["unconstrained.solution"]), "unconstrained solutions are almost equal");
-        t.ok(almostEqualArray(Lagrangian, expected.Lagrangian), "lagrangians are almost equal");
-        t.deepEqual(iact.slice(0, expected.iact.length), expected.iact);
-        t.deepEqual(iact.slice(expected.iact.length), new Array(iact.length - expected.iact.length).fill(0));
-        t.deepEqual(iterations, expected.iterations);
+        t.equal(message, "",
+            "message is empty");
+        t.ok(almostEqual(value[1], expected.value),
+            "values are almost equal");
+        t.ok(almostEqualArray(solution, expected.solution),
+            "solutions are almost equal");
+        t.ok(almostEqualArray(unconstrained_solution, expected["unconstrained.solution"]),
+            "unconstrained solutions are almost equal");
+        t.ok(almostEqualArray(Lagrangian, expected.Lagrangian),
+            "lagrangians are almost equal");
+        t.deepEqual(iact.slice(0, expected.iact.length), expected.iact,
+            "iact values are equal");
+        t.deepEqual(iact.slice(expected.iact.length), new Array(iact.length - expected.iact.length).fill(0),
+            "the rest of iact values are equal");
+        t.deepEqual(iterations, expected.iterations,
+            "iterations are equal");
         t.end();
     }
     return wrappedTest;
