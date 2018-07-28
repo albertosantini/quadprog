@@ -2,7 +2,7 @@
 ==================
 
 * Node.js supported >=8.x.
-* Refactor thte code in es2015 style.
+* Refactor the code in es2015 style.
 * Split the monolithic quadprog file.
 * Update eslint 5.x.
 
