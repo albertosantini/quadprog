@@ -1,7 +1,7 @@
 QUADPROG
 ========
-[![Build Status](https://travis-ci.org/albertosantini/node-quadprog.png)](https://travis-ci.org/albertosantini/node-quadprog)
-[![NPM version](https://badge.fury.io/js/quadprog.png)](http://badge.fury.io/js/quadprog)
+[![Build Status](https://travis-ci.org/albertosantini/node-quadprog.svg)](https://travis-ci.org/albertosantini/node-quadprog)
+[![NPM version](https://badge.fury.io/js/quadprog.svg)](http://badge.fury.io/js/quadprog)
 
 This module contains routines for solving quadratic programming problems,
 written in JavaScript.
