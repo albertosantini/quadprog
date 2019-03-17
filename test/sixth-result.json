@@ -1,1 +1,8 @@
-{"solution":[-1,-0.5,0,0.2,1],"value":-6.145,"unconstrained.solution":[-5,-0.5,0,0.2,2],"iterations":[3,0],"Lagrangian":[4,0,0,0,0,0,0,0,0,1],"iact":[1,10]}
+{
+    "solution": [-1, -0.5, 0, 0.2, 1],
+    "value": -6.145,
+    "unconstrained.solution": [-5, -0.5, 0, 0.2, 2],
+    "iterations": [3, 0],
+    "Lagrangian": [4, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    "iact": [1, 10]
+}
