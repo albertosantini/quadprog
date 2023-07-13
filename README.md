@@ -118,7 +118,6 @@ See also
 - [Vincent Zoonekynd's Blog](http://zoonek.free.fr/blosxom/R/2012-06-01_Optimization.html)
 - [fast.js](https://github.com/codemix/fast.js)
 - [Vectorious](https://github.com/mateogianolio/vectorious)
-- [More on Quadratic Programming in R](http://quantitate.blogspot.it/2015/02/more-on-quadratic-progamming-in-r.html)
 
 Methods
 =======
