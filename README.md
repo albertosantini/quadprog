@@ -1,7 +1,7 @@
 QUADPROG
 ========
 [![NPM version](https://badge.fury.io/js/quadprog.svg)](http://badge.fury.io/js/quadprog)
-![](https://github.com/albertosantini/node-quadprog/workflows/CI/badge.svg)
+![](https://github.com/albertosantini/quadprog/workflows/CI/badge.svg)
 
 This module contains routines for solving quadratic programming problems,
 written in JavaScript.
@@ -102,7 +102,7 @@ Notes
 index starts from 1 and not from zero. Please, be aware and give a look at the
 examples in the test folder**.
 
-If you are using `node-quadprog` via Numeric.js, don't forget the releases may
+If you are using `quadprog` via Numeric.js, don't forget the releases may
 be not in sync. Latest release is here.
 
 Applications
