@@ -11,7 +11,7 @@ function almostEqual(a, b) {
     const isAlmostEqual = Math.abs(a - b) <= epsilon + 1e-10 * Math.abs(b);
 
     if (!isAlmostEqual) {
-        console.log(a, b); // eslint-disable-line no-console
+        console.log(a, b);
     }
 
     return isAlmostEqual;

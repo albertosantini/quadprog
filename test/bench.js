@@ -40,6 +40,6 @@ fs.readdirSync("test")
 
 suite
     .on("cycle", event => {
-        console.warn(String(event.target)); // eslint-disable-line
+        console.warn(String(event.target));
     })
     .run();
