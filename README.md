@@ -13,18 +13,11 @@ Fortran.
 It implements the dual method of Goldfarb and Idnani (1982, 1983) for solving
 quadratic programming problems of the form
 
-
 $$
-\begin{equation*}
-    \min \left( -d^T b + \frac{1}{2} b^T D b \right)
-\end{equation*}
-$$
-subject to
-
-$$
-\begin{equation*}
-    A^T b \geq b_0
-\end{equation*}
+\begin{aligned}
+    & \min \left( -d^T b + \frac{1}{2} b^T D b \right) \\
+    \text{subject to} \quad & A^T b \geq b_0
+\end{aligned}
 $$
 
 References
