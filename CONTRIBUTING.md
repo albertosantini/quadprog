@@ -17,7 +17,7 @@ not the same of R ones.
 whatever is affected by your contribution.
 
 - Follow the conventions you see used in the source already. You may give a look
-at `.eslintrc.yml`.
+at `eslint.config.js`.
 
 - Push to your fork and submit a pull request (squashing the commits into one).
 
