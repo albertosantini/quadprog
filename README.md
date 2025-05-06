@@ -11,17 +11,30 @@ quadprog is a porting of a [R](http://www.r-project.org) package:
 Fortran.
 
 It implements the dual method of Goldfarb and Idnani (1982, 1983) for solving
-quadratic programming problems of the form min(d T b + 1=2b T Db) with the
-constraints AT b >= b0.
+quadratic programming problems of the form
+
+
+$$
+\begin{equation*}
+    \min \left( -d^T b + \frac{1}{2} b^T D b \right)
+\end{equation*}
+$$
+subject to
+
+$$
+\begin{equation*}
+    A^T b \geq b_0
+\end{equation*}
+$$
 
 References
 ==========
 
-D. Goldfarb and A. Idnani (1982). Dual and Primal-Dual Methods for Solving
+- D. Goldfarb and A. Idnani (1982). Dual and Primal-Dual Methods for Solving
 Strictly Convex Quadratic Programs. In J. P. Hennart (ed.), Numerical Analysis,
 Springer-Verlag, Berlin, pages 226–239.
 
-D. Goldfarb and A. Idnani (1983). A numerically stable dual method for solving
+- D. Goldfarb and A. Idnani (1983). A numerically stable dual method for solving
 strictly convex quadratic programs. Mathematical Programming, 27, 1–33.
 
 Example
