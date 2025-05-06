@@ -1,4 +1,10 @@
-.github
-.vscode
+.github/
+.vscode/
 
 test/
+
+.gitattributes
+.gitignore
+
+jsconfig.json
+eslint.config.js
