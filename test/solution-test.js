@@ -2,7 +2,8 @@
 
 const fs = require("fs");
 
-const test = require("tape");
+const { test } = require("node:test");
+const assert = require("node:assert");
 
 const qp = require("../lib/quadprog");
 const epsilon = require("../lib/vsmall");
@@ -38,7 +39,7 @@ function testWrapper(base) {
         expected.iact = [expected.iact];
     }
 
-    function wrappedTest(t) {
+    function runTest() {
         const {
             message,
             value,
@@ -57,37 +58,36 @@ function testWrapper(base) {
             iterations
         ].forEach(v => v.shift());
 
-        t.equal(message, "", "message is empty");
-        t.ok(almostEqual(value[1], expected.value), "values are almost equal");
-        t.ok(
+        assert.strictEqual(message, "", "message is empty");
+        assert.ok(almostEqual(value[1], expected.value), "values are almost equal");
+        assert.ok(
             almostEqualArray(solution, expected.solution),
             "solutions are almost equal"
         );
-        t.ok(
+        assert.ok(
             almostEqualArray(
                 unconstrained_solution,
                 expected["unconstrained.solution"]
             ),
             "unconstrained solutions are almost equal"
         );
-        t.ok(
+        assert.ok(
             almostEqualArray(Lagrangian, expected.Lagrangian),
             "lagrangians are almost equal"
         );
-        t.deepEqual(
+        assert.deepStrictEqual(
             iact.slice(0, expected.iact.length),
             expected.iact,
             "iact values are equal"
         );
-        t.deepEqual(
+        assert.deepStrictEqual(
             iact.slice(expected.iact.length),
             new Array(iact.length - expected.iact.length).fill(0),
             "the rest of iact values are equal"
         );
-        t.deepEqual(iterations, expected.iterations, "iterations are equal");
-        t.end();
+        assert.deepStrictEqual(iterations, expected.iterations, "iterations are equal");
     }
-    return wrappedTest;
+    return runTest;
 }
 
 fs.readdirSync("test")
