@@ -16,7 +16,7 @@
     },
     "scripts": {
         "test": "npm run lint && node --test test/solution-test.js && npm run benchmark",
-        "lint": "eslint index.js lib/**/*.js test/**/*.js",
+        "lint": "eslint .",
         "benchmark": "node test/bench.js"
     },
     "devDependencies": {
