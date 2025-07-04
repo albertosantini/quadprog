@@ -1,12 +1,10 @@
 "use strict";
 
-const fs = require("fs");
+const fs = require("node:fs");
 
-const Benchmark = require("benchmark");
+const { performance } = require("node:perf_hooks");
 
 const solve = require("../lib/quadprog").solveQP;
-
-const suite = new Benchmark.Suite("quadprog");
 
 function wsolve(file) {
     const {
@@ -36,10 +34,24 @@ function wsolve(file) {
 
 fs.readdirSync("test")
     .filter(f => f.endsWith("-data.json"))
-    .forEach(f => suite.add(f.slice(0, -10), wsolve(`test/${f}`)));
+    .forEach(f => {
+        const testName = f.slice(0, -10);
+        const funcToBench = wsolve(`test/${f}`);
+        const iterations = 1000; // Number of iterations for benchmarking
 
-suite
-    .on("cycle", event => {
-        console.warn(String(event.target));
-    })
-    .run();
+        let totalTime = 0;
+
+        for (let i = 0; i < iterations; i++) {
+            const start = performance.now();
+
+            funcToBench();
+
+            const end = performance.now();
+
+            totalTime += (end - start);
+        }
+
+        const averageTime = totalTime / iterations;
+
+        console.warn(`${testName}: Average time = ${averageTime.toFixed(4)} ms over ${iterations} iterations`);
+    });
