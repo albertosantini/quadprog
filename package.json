@@ -3,6 +3,7 @@
     "description": "Module for solving quadratic programming problems",
     "version": "1.6.1",
     "main": "index",
+    "type": "module",
     "repository": "http://github.com/albertosantini/quadprog",
     "keywords": [
         "quadprog",
@@ -15,7 +16,7 @@
         "node": ">=18.x"
     },
     "scripts": {
-        "test": "npm run lint && node --test test/solution-test.js && npm run benchmark",
+        "test": "npm run lint && node --test --test-reporter=spec test/solution-test.js && npm run benchmark",
         "lint": "eslint .",
         "benchmark": "node test/bench.js"
     },

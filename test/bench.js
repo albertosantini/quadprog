@@ -1,10 +1,6 @@
-"use strict";
-
-const fs = require("node:fs");
-
-const { performance } = require("node:perf_hooks");
-
-const solve = require("../lib/quadprog").solveQP;
+import { readFileSync, readdirSync } from "node:fs";
+import { performance } from "node:perf_hooks";
+import { solveQP } from "../lib/quadprog.js";
 
 function wsolve(file) {
     const {
@@ -14,13 +10,13 @@ function wsolve(file) {
         bvec,
         meq,
         factorized
-    } = JSON.parse(fs.readFileSync(file).toString());
+    } = JSON.parse(readFileSync(file).toString());
 
     [Dmat, Amat].forEach(m => m.forEach(r => r.unshift(0)));
     [Dmat, dvec, Amat, bvec].forEach(v => v.unshift([]));
 
     function wrapped() {
-        solve(
+        solveQP(
             Dmat.map(r => r.slice()),
             dvec.slice(),
             Amat.map(r => r.slice()),
@@ -32,7 +28,7 @@ function wsolve(file) {
     return wrapped;
 }
 
-fs.readdirSync("test")
+readdirSync("test")
     .filter(f => f.endsWith("-data.json"))
     .forEach(f => {
         const testName = f.slice(0, -10);

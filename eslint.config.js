@@ -1,9 +1,7 @@
-"use strict";
+import globals from "globals";
+import js from "@eslint/js";
 
-const globals = require("globals");
-const js = require("@eslint/js");
-
-module.exports = [
+export default [
     js.configs.recommended,
     {
         languageOptions: {
@@ -11,7 +9,7 @@ module.exports = [
                 ...globals.builtin,
                 ...globals.node
             },
-            sourceType: "commonjs"
+            sourceType: "module"
         },
         rules: {
             "array-bracket-spacing": "error",

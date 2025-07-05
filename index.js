@@ -1,3 +1,1 @@
-"use strict";
-
-module.exports = require("./lib/quadprog");
+export * from "./lib/quadprog.js";

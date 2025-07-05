@@ -1,12 +1,9 @@
-"use strict";
+import { readFileSync, readdirSync } from "node:fs";
+import { test } from "node:test";
+import assert from "node:assert";
 
-const fs = require("fs");
-
-const { test } = require("node:test");
-const assert = require("node:assert");
-
-const qp = require("../lib/quadprog");
-const epsilon = require("../lib/vsmall");
+import { solveQP } from "../lib/quadprog.js";
+import epsilon from "../lib/vsmall.js";
 
 function almostEqual(a, b) {
     const isAlmostEqual = Math.abs(a - b) <= epsilon + 1e-10 * Math.abs(b);
@@ -24,10 +21,10 @@ function almostEqualArray(a, b) {
 
 function testWrapper(base) {
     const { Dmat, dvec, Amat, bvec, meq, factorized } = JSON.parse(
-        fs.readFileSync(`test/${base}-data.json`).toString()
+        readFileSync(`test/${base}-data.json`).toString()
     );
     const expected = JSON.parse(
-        fs.readFileSync(`test/${base}-result.json`).toString()
+        readFileSync(`test/${base}-result.json`).toString()
     );
 
     [Dmat, Amat].forEach(m => m.forEach(r => r.unshift(0)));
@@ -48,7 +45,7 @@ function testWrapper(base) {
             Lagrangian,
             iact,
             iterations
-        } = qp.solveQP(Dmat, dvec, Amat, bvec, meq, [, factorized ? 1 : 0]); // eslint-disable-line no-sparse-arrays
+        } = solveQP(Dmat, dvec, Amat, bvec, meq, [, factorized ? 1 : 0]); // eslint-disable-line no-sparse-arrays
 
         [
             solution,
@@ -90,7 +87,7 @@ function testWrapper(base) {
     return runTest;
 }
 
-fs.readdirSync("test")
+readdirSync("test")
     .filter(f => f.endsWith("-data.json"))
     .map(f => f.slice(0, -10))
     .forEach(name => test(`Test ${name}`, testWrapper(name)));
