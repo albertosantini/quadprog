@@ -1,3 +1,17 @@
+WIP / *
+=========
+
+* Review README
+* Refactor code to use ES module
+* Refactor tests to use node:test
+* Refactor benchmarks to use node:perf_hooks
+* Add Copilot instructions
+* Rename from node-quadprog to quadprog
+* Update eslint to 9.x
+* Fix qpgen2
+* Refactor dpofa
+* Review chore files
+
 1.6.1 / 2018-07-28
 ==================
 
