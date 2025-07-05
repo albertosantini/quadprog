@@ -30,6 +30,24 @@ Springer-Verlag, Berlin, pages 226–239.
 - D. Goldfarb and A. Idnani (1983). A numerically stable dual method for solving
 strictly convex quadratic programs. Mathematical Programming, 27, 1–33.
 
+
+Installation and usage
+======================
+
+To install with [npm](http://github.com/isaacs/npm):
+
+    npm install quadprog
+
+Usage:
+
+    import { solveQP } from "quadprog"; // ESM
+
+or
+
+    const { solveQP } = require("quadprog"); // CJS
+
+Tested locally with Node.js 22.x and with R 4.x.
+
 Example
 ========
 
@@ -128,15 +146,6 @@ solveQP(Dmat, dvec, Amat, bvec)
 //   message: ''
 // }
 ```
-
-Installation
-============
-
-To install with [npm](http://github.com/isaacs/npm):
-
-    npm install quadprog
-
-Tested locally with Node.js 22.x and with R 4.x.
 
 Notes
 =====
