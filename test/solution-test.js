@@ -41,7 +41,7 @@ function testWrapper(base) {
             message,
             value,
             solution,
-            unconstrained_solution, // eslint-disable-line camelcase
+            unconstrained_solution,
             Lagrangian,
             iact,
             iterations
@@ -49,7 +49,7 @@ function testWrapper(base) {
 
         [
             solution,
-            unconstrained_solution, // eslint-disable-line camelcase
+            unconstrained_solution,
             Lagrangian,
             iact,
             iterations
