@@ -33,27 +33,49 @@ strictly convex quadratic programs. Mathematical Programming, 27, 1–33.
 Example
 ========
 
+```r
+## Assume we want to minimize: -(0 5 0) %*% b + 1/2 b^T b
+## under the constraints: A^T b >= b0
+## with b0 = (-8,2,0)^T
+## and
+##     (-4 2  0)
+## A = (-3 1 -2)
+##     ( 0 0  1)
+## we can use solve.QP as follows:
+##
+require(quadprog)
+
+Dmat <- matrix(0, 3, 3)
+diag(Dmat) <- 1
+dvec <- c(0, 5 ,0)
+Amat <- matrix(c(-4, -3, 0, 2, 1, 0, 0, -2, 1), 3, 3)
+bvec <- c(-8, 2 ,0)
+
+solve.QP(Dmat, dvec, Amat, bvec=bvec)
+
+# $solution
+# [1] 0.4761905 1.0476190 2.0952381
+
+# $value
+# [1] -2.380952
+
+# $unconstrained.solution
+# [1] 0 5 0
+
+# $iterations
+# [1] 3 0
+
+# $Lagrangian
+# [1] 0.0000000 0.2380952 2.0952381
+
+# $iact
+# [1] 3 2
 ```
-// ##
-// ## Assume we want to minimize: -(0 5 0) %*% b + 1/2 b^T b
-// ## under the constraints: A^T b >= b0
-// ## with b0 = (-8,2,0)^T
-// ## and
-// ##     (-4 2  0)
-// ## A = (-3 1 -2)
-// ##     ( 0 0  1)
-// ## we can use solve.QP as follows:
-// ##
-// Dmat <- matrix(0,3,3)
-// diag(Dmat) <- 1
-// dvec <- c(0,5,0)
-// Amat <- matrix(c(-4,-3,0,2,1,0,0,-2,1),3,3)
-// bvec <- c(-8,2,0)
-// solve.QP(Dmat,dvec,Amat,bvec=bvec)
 
-var qp = require('quadprog');
+```javascript
+import { solveQP } from "quadprog.js";
 
-var Dmat = [], dvec = [], Amat = [], bvec = [], res;
+const Dmat = [], dvec = [], Amat = [], bvec = [];
 
 Dmat[1] = [];
 Dmat[2] = [];
@@ -89,7 +111,22 @@ bvec[1] = -8;
 bvec[2] = 2;
 bvec[3] = 0;
 
-res = qp.solveQP(Dmat, dvec, Amat, bvec)
+solveQP(Dmat, dvec, Amat, bvec)
+
+// {
+//   solution: [
+//     <1 empty item>,
+//     0.47619047619047616,
+//     1.0476190476190477,
+//     2.0952380952380953
+//   ],
+//   Lagrangian: [ <1 empty item>, 0, 0.23809523809523808, 2.0952380952380953 ],
+//   value: [ <1 empty item>, -2.380952380952381 ],
+//   unconstrained_solution: [ <1 empty item>, 0, 5, 0 ],
+//   iterations: [ <1 empty item>, 3, 0 ],
+//   iact: [ <1 empty item>, 3, 2, 0 ],
+//   message: ''
+// }
 ```
 
 Installation
@@ -99,7 +136,7 @@ To install with [npm](http://github.com/isaacs/npm):
 
     npm install quadprog
 
-Tested locally with Node.js 10.x and with R 3.4.1.
+Tested locally with Node.js 22.x and with R 4.x.
 
 Notes
 =====
