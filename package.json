@@ -2,8 +2,13 @@
     "name": "quadprog",
     "description": "Module for solving quadratic programming problems",
     "version": "1.6.1",
-    "main": "index",
     "type": "module",
+    "exports": {
+        ".": {
+            "import": "./index.js",
+            "require": "./index.cjs"
+        }
+    },
     "repository": "http://github.com/albertosantini/quadprog",
     "keywords": [
         "quadprog",
