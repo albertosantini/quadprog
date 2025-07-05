@@ -73,7 +73,7 @@ solve.QP(Dmat, dvec, Amat, bvec=bvec)
 ```
 
 ```javascript
-import { solveQP } from "quadprog.js";
+import { solveQP } from "quadprog";
 
 const Dmat = [], dvec = [], Amat = [], bvec = [];
 
@@ -146,7 +146,9 @@ index starts from 1 and not from zero. Please, be aware and give a look at the
 examples in the test folder**.
 
 If you are using `quadprog` via Numeric.js, don't forget the releases may
-be not in sync. Latest release is here.
+be not in sync.
+
+Latest release is [here](https://github.com/albertosantini/quadprog).
 
 Applications
 ============
