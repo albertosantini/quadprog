@@ -1,6 +1,7 @@
 .github/
 .vscode/
 
+legacy/
 test/
 
 .gitattributes
