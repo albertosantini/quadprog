@@ -150,6 +150,8 @@ solveQP(Dmat, dvec, Amat, bvec)
 Notes
 =====
 
+This is a strictly porting from Fortran code contained in R package [quadprog](https://cran.r-project.org/web/packages/quadprog/).
+
 **To maintain a one-to-one porting with the Fortran implementation, the array
 index starts from 1 and not from zero. Please, be aware and give a look at the
 examples in the test folder**.
