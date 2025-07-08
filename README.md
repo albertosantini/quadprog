@@ -15,8 +15,8 @@ quadratic programming problems of the form
 
 $$
 \begin{aligned}
-    & \min \left( -d^T b + \frac{1}{2} b^T D b \right) \\
-    \text{subject to} \quad & A^T b \geq b_0
+\text{minimize} \quad & -d^T b + \frac{1}{2} b^T D b \\
+\text{subject to} \quad & A^T b \geq b_0
 \end{aligned}
 $$
 
