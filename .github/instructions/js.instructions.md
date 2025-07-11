@@ -1,3 +1,6 @@
+---
+applyTo: "**/*.js"
+---
 # Javascript Styles
 
 ## Coding Standards
