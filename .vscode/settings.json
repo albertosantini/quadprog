@@ -5,11 +5,6 @@
     "search.exclude": {
         "**/node_modules": true
     },
-    "github.copilot.chat.codeGeneration.instructions": [
-        {
-            "file": "./.github/js-styles.md"
-        }
-    ],
     "github.copilot.chat.commitMessageGeneration.instructions": [
         {
             "file": "./.github/commit-styles.md"
