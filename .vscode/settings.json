@@ -4,10 +4,5 @@
     },
     "search.exclude": {
         "**/node_modules": true
-    },
-    "github.copilot.chat.commitMessageGeneration.instructions": [
-        {
-            "file": "./.github/commit-styles.md"
-        }
-    ]
+    }
 }
