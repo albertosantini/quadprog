@@ -2,6 +2,10 @@ import { readFileSync, readdirSync } from "node:fs";
 import { performance } from "node:perf_hooks";
 import { solveQP } from "../lib/quadprog.js";
 
+/**
+ *
+ * @param file
+ */
 function wsolve(file) {
     const {
         Dmat,
@@ -15,6 +19,9 @@ function wsolve(file) {
     [Dmat, Amat].forEach(m => m.forEach(r => r.unshift(0)));
     [Dmat, dvec, Amat, bvec].forEach(v => v.unshift([]));
 
+    /**
+     *
+     */
     function wrapped() {
         solveQP(
             Dmat.map(r => r.slice()),
@@ -22,7 +29,7 @@ function wsolve(file) {
             Amat.map(r => r.slice()),
             bvec.slice(),
             meq,
-            [, factorized ? 1 : 0] // eslint-disable-line no-sparse-arrays
+            [0, factorized ? 1 : 0]
         );
     }
     return wrapped;

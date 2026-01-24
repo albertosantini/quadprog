@@ -1,8 +1,17 @@
 {
     "compilerOptions": {
         "checkJs": true,
-        "target": "esnext",
-        "module": "nodenext",
-        "moduleResolution": "nodenext"
-    }
+        "skipLibCheck": true,
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "target": "ESNext",
+        "maxNodeModuleJsDepth": 0,
+        "strict": true,
+        "noImplicitAny": false,
+        "alwaysStrict": true,
+        "noEmit": true
+    },
+    "exclude": [
+        "node_modules"
+    ]
 }

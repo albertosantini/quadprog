@@ -5,6 +5,11 @@ import assert from "node:assert";
 import { solveQP } from "../lib/quadprog.js";
 import epsilon from "../lib/vsmall.js";
 
+/**
+ *
+ * @param a
+ * @param b
+ */
 function almostEqual(a, b) {
     const isAlmostEqual = Math.abs(a - b) <= epsilon + 1e-10 * Math.abs(b);
 
@@ -15,10 +20,19 @@ function almostEqual(a, b) {
     return isAlmostEqual;
 }
 
+/**
+ *
+ * @param a
+ * @param b
+ */
 function almostEqualArray(a, b) {
     return a.length === b.length && a.every((av, i) => almostEqual(av, b[i]));
 }
 
+/**
+ *
+ * @param base
+ */
 function testWrapper(base) {
     const { Dmat, dvec, Amat, bvec, meq, factorized } = JSON.parse(
         readFileSync(`test/${base}-data.json`).toString()
@@ -36,6 +50,9 @@ function testWrapper(base) {
         expected.iact = [expected.iact];
     }
 
+    /**
+     *
+     */
     function runTest() {
         const {
             message,
@@ -45,7 +62,7 @@ function testWrapper(base) {
             Lagrangian,
             iact,
             iterations
-        } = solveQP(Dmat, dvec, Amat, bvec, meq, [, factorized ? 1 : 0]); // eslint-disable-line no-sparse-arrays
+        } = solveQP(Dmat, dvec, Amat, bvec, meq, [0, factorized ? 1 : 0]);
 
         [
             solution,
