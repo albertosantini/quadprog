@@ -77,6 +77,7 @@ The project uses a hybrid JavaScript/TypeScript approach to ensure type safety a
     5. **How can we find the bug?** (Implicitly answered by the above).
 - **Explicitness:** Everything needed to understand a test must be part of the test itself. Use factory functions to produce complex data structures instead of sharing mutable fixtures.
 - **Thoroughness:** Test all expected edge cases (empty sets, extreme values, errors).
+- **Benchmarking:** Runtime checks use `npm run benchmark`, which reports warmup-controlled clone, solve, and total timings for both bundled fixtures and deterministic synthetic large cases (`synthetic-n25-q100`, `synthetic-n50-q200`). Use `npm run benchmark:profile` for CPU hotspot inspection; it profiles only the synthetic large cases via `test/bench.js --synthetic-only`. When benchmark semantics or meaningful performance baselines change, update `test/benchmark-baseline.md` and compare solver changes primarily through the `solve mean` column. Keep benchmark-only fixtures and helpers under `test/` or npm scripts; do not expose them through the public API.
 
 ### Error Handling
 - Don't swallow errors. Prefer returning structured errors or throwing typed/custom errors with actionable context.
