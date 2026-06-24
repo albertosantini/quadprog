@@ -21,7 +21,7 @@
         "node": ">=24.x"
     },
     "scripts": {
-        "test": "npm run lint && node --test --test-reporter=spec test/solution-test.js && npm run benchmark",
+        "test": "npm run lint && node --test --experimental-test-coverage --test-coverage-lines=100 --test-coverage-functions=100 --test-coverage-branches=100 --test-reporter=spec test/solution-test.js && npm run benchmark",
         "lint": "eslint .",
         "lint-ts": "npx --yes -p @typescript/native-preview tsgo -p jsconfig.json --noEmit",
         "validate": "npm run lint && npm run lint-ts && npm run test",

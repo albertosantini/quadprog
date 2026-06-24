@@ -104,7 +104,146 @@ function testWrapper(base) {
     return runTest;
 }
 
+/**
+ *
+ * @returns {{Dmat: number[][], dvec: number[], Amat: number[][], bvec: number[]}} a valid one-dimensional problem.
+ */
+function createOneDimensionalProblem() {
+    return {
+        Dmat: [[], [0, 1]],
+        dvec: [0, 1],
+        Amat: [[], [0, 1]],
+        bvec: [0, 0]
+    };
+}
+
+/**
+ *
+ * @returns {Array<{Dmat: number[][], dvec: number[], Amat: number[][], bvec: number[], meq: number}>} deterministic active-set problems.
+ */
+function createActiveSetProblems() {
+    /** @type {Array<[number[], number]>} */
+    const constraints = [
+        [[1, 0], 0],
+        [[0, 1], 0],
+        [[-1, 0], -1],
+        [[0, -1], -1],
+        [[1, 1], 1],
+        [[-1, -1], -2],
+        [[1, -1], 0],
+        [[-1, 1], 0]
+    ];
+    const objectiveVectors = [
+        [2, -1],
+        [-1, 2],
+        [2, 2],
+        [-2, -1],
+        [0.5, -2]
+    ];
+    /** @type {Array<{Dmat: number[][], dvec: number[], Amat: number[][], bvec: number[], meq: number}>} */
+    const problems = [];
+
+    for (const dvecValues of objectiveVectors) {
+        for (let start = 0; start <= constraints.length - 3; start += 1) {
+            for (const meq of [0, 1, 2]) {
+                const selectedConstraints = constraints.slice(start, start + 3);
+                const Amat = [[], [0], [0]];
+                const bvec = [0];
+
+                for (const [constraint, bound] of selectedConstraints) {
+                    Amat[1].push(constraint[0]);
+                    Amat[2].push(constraint[1]);
+                    bvec.push(bound);
+                }
+
+                problems.push({
+                    Dmat: [[], [0, 1, 0], [0, 0, 1]],
+                    dvec: [0, dvecValues[0], dvecValues[1]],
+                    Amat,
+                    bvec,
+                    meq
+                });
+            }
+        }
+    }
+
+    return problems;
+}
+
 readdirSync("test")
     .filter(f => f.endsWith("-data.json"))
     .map(f => f.slice(0, -10))
     .forEach(name => test(`Test ${name}`, testWrapper(name)));
+
+test("solveQP returns input validation errors", () => {
+    const problem = createOneDimensionalProblem();
+    const twoDimensionalDmat = [[], [0, 1, 0], [0, 0, 1]];
+    const twoDimensionalDvec = [0, 1, 1];
+
+    assert.strictEqual(
+        solveQP([[], [0]], problem.dvec, problem.Amat, problem.bvec).message,
+        "Dmat is not symmetric!"
+    );
+    assert.strictEqual(
+        solveQP(problem.Dmat, [0], problem.Amat, problem.bvec).message,
+        "Dmat and dvec are incompatible!"
+    );
+    assert.strictEqual(
+        solveQP(twoDimensionalDmat, twoDimensionalDvec, [[], [0, 1]], problem.bvec).message,
+        "Amat and dvec are incompatible!"
+    );
+    assert.strictEqual(
+        solveQP(problem.Dmat, problem.dvec, problem.Amat, [0, 0, 0]).message,
+        "Amat and bvec are incompatible!"
+    );
+    assert.strictEqual(
+        solveQP(problem.Dmat, problem.dvec, problem.Amat, problem.bvec, 2).message,
+        "Value of meq is invalid!"
+    );
+    assert.strictEqual(
+        solveQP(problem.Dmat, problem.dvec, problem.Amat, problem.bvec, -1).message,
+        "Value of meq is invalid!"
+    );
+});
+
+test("solveQP defaults an empty bvec to zero constraints", () => {
+    const problem = createOneDimensionalProblem();
+    const result = solveQP(problem.Dmat, problem.dvec, problem.Amat);
+
+    assert.strictEqual(result.message, "");
+    assert.ok(almostEqual(result.solution[1], 1));
+});
+
+test("solveQP reports a non-positive definite objective matrix", () => {
+    const result = solveQP([[], [0, -1]], [0, 1], [[], [0, 1]], [0, 0]);
+
+    assert.strictEqual(
+        result.message,
+        "matrix D in quadratic function is not positive definite!"
+    );
+});
+
+test("solveQP reports inconsistent constraints", () => {
+    const result = solveQP(
+        [[], [0, 1]],
+        [0, 0],
+        [[], [0, 1, -1]],
+        [0, 1, 0]
+    );
+
+    assert.strictEqual(result.message, "constraints are inconsistent, no solution!");
+});
+
+test("solveQP handles deterministic active-set edge cases", () => {
+    for (const problem of createActiveSetProblems()) {
+        const result = solveQP(
+            problem.Dmat.map(row => row.slice()),
+            problem.dvec.slice(),
+            problem.Amat.map(row => row.slice()),
+            problem.bvec.slice(),
+            problem.meq
+        );
+
+        assert.strictEqual(typeof result.message, "string");
+    }
+});
