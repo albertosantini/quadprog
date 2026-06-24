@@ -69,6 +69,7 @@ The project uses a hybrid JavaScript/TypeScript approach to ensure type safety a
 ### Testing & Quality Assurance
 - **Coverage Mandate:** Project-wide test coverage MUST always be **100%** (for Lines, Functions, and Branches). Any new feature or bug fix must include corresponding tests that maintain this threshold.
 - **Locality & Isolation:** Tests MUST NOT rely on external state or the execution order of other tests. Units under test should be isolated from each other with no shared mutable state.
+- **Coverage Gate:** `npm test` MUST run Node's test runner with `--experimental-test-coverage` and enforce `--test-coverage-lines=100`, `--test-coverage-functions=100`, and `--test-coverage-branches=100`. Any `node:coverage` exclusion in the solver must be limited to unreachable or degenerate preserved-port branches and kept adjacent to the excluded branch.
 - **The 5 Questions Framework:** Every test must be readable and explicitly answer:
     1. **What is the unit under test?** (Must be in a named `describe` block).
     2. **What is the expected behavior?** (Described in `test` titles).
