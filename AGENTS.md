@@ -122,6 +122,7 @@ To prevent build failures and maintain code quality, the agent MUST execute the 
 
 ### Documentation Maintenance
 - **Sync Mandate:** `AGENTS.md` MUST be kept in sync with the implementation at all times. Any change to core logic, configuration, or workflow MUST be reflected in this document immediately.
+- **Changelog Mandate:** Before committing, review whether the staged changes are relevant to users, contributors, release notes, compatibility, benchmarks, tests, public API, packaging, CI, or documented workflow. If so, update `CHANGELOG.md` in the `Unreleased` section as part of the same logical documentation scope. Purely internal refactors, typo-only edits, and agent/system documentation changes may skip the changelog when they do not affect users or contributors.
 - **Sequential Numbering:** When adding, removing, or moving sections in `AGENTS.md`, you MUST ensure that the sequential numbering of all headers is maintained correctly.
 
 ### Versioning & Git Tags
