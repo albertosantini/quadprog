@@ -1,13 +1,13 @@
 QUADPROG
 ========
-[![NPM version](https://badge.fury.io/js/quadprog.svg)](http://badge.fury.io/js/quadprog)
+[![NPM version](https://badge.fury.io/js/quadprog.svg)](https://badge.fury.io/js/quadprog)
 ![](https://github.com/albertosantini/quadprog/workflows/CI/badge.svg)
 
 This module contains routines for solving quadratic programming problems,
 written in JavaScript.
 
-quadprog is a porting of a [R](http://www.r-project.org) package:
-[quadprog](http://cran.r-project.org/web/packages/quadprog/), implemented in
+quadprog is a JavaScript port of the [R](https://www.r-project.org) package
+[quadprog](https://cran.r-project.org/web/packages/quadprog/), implemented in
 Fortran.
 
 It implements the dual method of Goldfarb and Idnani (1982, 1983) for solving
@@ -34,7 +34,7 @@ strictly convex quadratic programs. Mathematical Programming, 27, 1–33.
 Installation and usage
 ======================
 
-To install with [npm](http://github.com/isaacs/npm):
+To install with [npm](https://www.npmjs.com/package/quadprog):
 
     npm install quadprog
 
@@ -46,7 +46,7 @@ or
 
     const { solveQP } = require("quadprog"); // CJS
 
-Tested locally with Node.js 22.x and with R 4.x.
+Tested locally with Node.js 24.x and with R 4.x.
 
 Example
 ========
@@ -150,22 +150,18 @@ solveQP(Dmat, dvec, Amat, bvec)
 Notes
 =====
 
-This is a strictly porting from Fortran code contained in R package [quadprog](https://cran.r-project.org/web/packages/quadprog/).
+This is a direct port of the Fortran code contained in the R package
+[quadprog](https://cran.r-project.org/web/packages/quadprog/).
 
-**To maintain a one-to-one porting with the Fortran implementation, the array
-index starts from 1 and not from zero. Please, be aware and give a look at the
-examples in the test folder**.
+**To preserve one-to-one alignment with the Fortran implementation, arrays are
+1-based rather than 0-based. See the examples in the test folder for the
+expected input shape**.
 
-If you are using `quadprog` via Numeric.js, don't forget the releases may
-be not in sync.
+If you are using `quadprog` via
+[Numeric.js](https://github.com/sloisel/numeric), don't forget the releases
+may not be in sync.
 
-Latest release is [here](https://github.com/albertosantini/quadprog).
-
-Applications
-============
-
-- [ConPA](https://github.com/albertosantini/node-conpa)
-- [Numeric.js](https://github.com/sloisel/numeric)
+Latest releases are [here](https://github.com/albertosantini/quadprog/releases).
 
 See also
 ========
@@ -178,7 +174,7 @@ See also
 Methods
 =======
 
-solveQP(Dmat, dvec, Amat, bvec, meq=0, factorized=FALSE)
+solveQP(Dmat, dvec, Amat, bvec = [], meq = 0, factorized = [0, 0])
 -------
 
 **Arguments**
@@ -187,49 +183,61 @@ solveQP(Dmat, dvec, Amat, bvec, meq=0, factorized=FALSE)
 
 - *dvec* vector appearing in the quadratic function to be minimized.
 
-- *Amat* matrix deﬁning the constraints under which we want to minimize the
+- *Amat* matrix defining the constraints under which we want to minimize the
 quadratic function.
 
 - *bvec* vector holding the values of b0 (defaults to zero).
 
-- *meq* the ﬁrst meq constraints are treated as equality constraints, all
+- *meq* the first meq constraints are treated as equality constraints, all
 further as inequality constraints (defaults to 0).
 
-- *factorized* logical ﬂag: if TRUE, then we are passing R1 (where D = RT R)
-instead of the matrix D in the argument Dmat.
+- *factorized* port-style flag array. Omit it or pass `[0, 0]` for the same
+behavior as R's `factorized=FALSE`. Pass `[0, 1]` when `Dmat` contains
+`R^-1`, where `D = R^T R`.
 
 **Value**
 
-An object with the following property:
+An object with the following properties:
 
 - *solution* vector containing the solution of the quadratic programming
 problem.
 
-- *value* scalar, the value of the quadratic function at the solution
+- *value* scalar, the value of the quadratic function at the solution.
 
-- *unconstrained.solution* vector containing the unconstrained minimizer of the
+- *unconstrained_solution* vector containing the unconstrained minimizer of the
 quadratic function.
 
-- *iterations* vector of length 2, the ﬁrst component contains the number of
+- *iterations* vector of length 2, the first component contains the number of
 iterations the algorithm needed, the second indicates how often constraints
-became inactive after becoming active ﬁrst.
+became inactive after becoming active first.
 
 - *Lagrangian* vector with the Lagrangian multipliers at the solution.
 
 - *iact* vector with the indices of the active constraints at the solution.
 
-- *message* string containing an error message, if the call failed, otherwise empty.
+- *message* string containing an error message, if the call failed, otherwise
+empty.
 
 Testing
 =======
 
-Base test cases are in json formatted files with the name `<name>-data.json`.
-These can be passed into `solve.R` to create the standard R results for solveQP with the name `<name>-result.json`.
-The standard usage is `Rscript solve.R *-data.json`, but you may wish to only create result files for specific tests.
-The combination of these files is then used by `solution-test.js` and `bench.js`.
+Run the full local validation suite with:
+
+    npm run validate
+
+This runs linting, TypeScript checking, the Node.js test runner with 100%
+coverage gates, and the benchmark suite.
+
+Base test cases are in JSON formatted files with the name `<name>-data.json`.
+These can be passed into `solve.R` to create the standard R results for
+`solveQP` with the name `<name>-result.json`. The standard usage is
+`Rscript solve.R *-data.json`, but you may wish to only create result files for
+specific tests. The combination of these files is then used by
+`solution-test.js` and `bench.js`.
 
 
 Adding Tests
 ------------
 
-To add a new test simply create a file called `<name>-data.json` in the test directory, and then call `Rscript solve.R <name>-data.json` and commit the results.
+To add a new test, create a file called `<name>-data.json` in the test
+directory, then call `Rscript solve.R <name>-data.json` and commit the results.
