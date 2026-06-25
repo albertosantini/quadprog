@@ -1,16 +1,25 @@
-WIP / *
-=========
+2.0.0 / 2026-06-25
+==================
 
-* Review README
-* Refactor code to use ES module
-* Refactor tests to use node:test
-* Refactor benchmarks to use node:perf_hooks
-* Add Copilot instructions
-* Rename from node-quadprog to quadprog
-* Update eslint to 9.x
-* Fix qpgen2
-* Refactor dpofa
-* Review chore files
+* Require Node.js 24.x and update CI to run on Node.js 24 with current
+  GitHub Actions.
+* Publish dual ESM and CommonJS entry points through package exports.
+* Improve solver benchmark performance while preserving the 1-based
+  Goldfarb-Idnani porting model.
+* Fix and harden qpgen2 edge cases covered by the expanded test suite.
+* Refactor dpofa and vsmall internals.
+* Modernize the test suite from tape to node:test and node:assert.
+* Enforce 100% line, function, and branch coverage in npm test.
+* Refactor benchmarks to use node:perf_hooks, add deterministic synthetic
+  large cases, and add a CPU profiling script.
+* Update README examples, mathematical notation, ESM and CommonJS usage,
+  and Fortran porting notes.
+* Rename repository references from node-quadprog to quadprog.
+* Replace legacy lint configuration with ESLint flat config and update
+  development dependencies.
+* Add Dependabot configuration and project agent instructions.
+* Remove Travis CI, legacy VS Code settings, and obsolete Copilot
+  instructions.
 
 1.6.1 / 2018-07-28
 ==================
