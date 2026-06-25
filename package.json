@@ -9,7 +9,10 @@
             "require": "./index.cjs"
         }
     },
-    "repository": "http://github.com/albertosantini/quadprog",
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/albertosantini/quadprog.git"
+    },
     "keywords": [
         "quadprog",
         "solving",
