@@ -1,7 +1,7 @@
 {
     "name": "quadprog",
     "description": "Module for solving quadratic programming problems",
-    "version": "1.6.1",
+    "version": "2.0.0",
     "type": "module",
     "exports": {
         ".": {
