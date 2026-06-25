@@ -15,8 +15,12 @@
     },
     "keywords": [
         "quadprog",
-        "solving",
-        "quadratic"
+        "quadratic-programming",
+        "quadratic-optimization",
+        "convex-optimization",
+        "qp",
+        "solver",
+        "goldfarb-idnani"
     ],
     "author": "Alberto Santini",
     "license": "MIT",
