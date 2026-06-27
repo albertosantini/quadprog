@@ -157,6 +157,11 @@ This is a direct port of the Fortran code contained in the R package
 1-based rather than 0-based. See the examples in the test folder for the
 expected input shape**.
 
+Runtime optimizations are limited to representation-level changes that preserve
+the ported active-set behavior. For example, the solver may cache active
+inequality constraints to avoid repeated violation scans, but it must keep the
+same constraint selection rules and observable results.
+
 If you are using `quadprog` via
 [Numeric.js](https://github.com/sloisel/numeric), don't forget the releases
 may not be in sync.

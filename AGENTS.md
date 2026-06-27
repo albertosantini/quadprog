@@ -26,6 +26,7 @@ The implementation strictly adheres to the dual method for solving strictly conv
 - **Starting Point:** It utilizes the unconstrained minimum of the objective function as the initial point.
 - **Active-Set Type:** It iteratively adds violated constraints to the active set until dual feasibility (and thus optimality) is achieved.
 - **Numerical Stability:** It employs Cholesky factorizations (`dpofa`, `dposl`, `dpori`) and stable updating procedures instead of explicit matrix inversions, as recommended in Section 4 of the paper.
+- **Performance Representation:** Internal caches may use active-constraint markers to reduce JavaScript runtime overhead, but these optimizations must preserve the original active-set selection rules, 1-based logical indexing, and observable solver results.
 
 ### B. Compatibility & Conventions
 - **R Package Alignment:** Variable names and API structures (e.g., `unconstrained_solution`) are preserved to maintain alignment with the canonical R package `quadprog` and the original Fortran implementation.

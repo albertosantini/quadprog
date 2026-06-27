@@ -3,6 +3,8 @@ Unreleased
 
 * Normalize package repository metadata for npm consumers.
 * Refine npm keywords to improve package discovery.
+* Improve solver runtime by skipping active inequality constraints during
+  violation scans while preserving the ported active-set behavior.
 
 2.0.0 / 2026-06-25
 ==================
