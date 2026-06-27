@@ -30,7 +30,7 @@
     "scripts": {
         "test": "npm run lint && node --test --experimental-test-coverage --test-coverage-lines=100 --test-coverage-functions=100 --test-coverage-branches=100 --test-reporter=spec test/solution-test.js && npm run benchmark",
         "lint": "eslint .",
-        "lint-ts": "npx --yes -p @typescript/native-preview tsgo -p jsconfig.json --noEmit",
+        "lint-ts": "npx --yes --package typescript@rc tsc -p jsconfig.json --noEmit",
         "validate": "npm run lint && npm run lint-ts && npm run test",
         "benchmark": "node test/bench.js",
         "benchmark:profile": "node --cpu-prof test/bench.js --synthetic-only"
